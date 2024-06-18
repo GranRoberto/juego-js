@@ -61,13 +61,10 @@ function pelea(goku, vegeta) {
     if (turno === 'ataca') {
       let [atacante, defensor] = [goku, vegeta].sort(() => Math.random() - 0.5);
       atacante.ataque(defensor);
-
-      if (defensor.vida <= 0) {
-        console.log(`${defensor.nombre} fue derrotado!`);
-        break;
-      }
-
       turno = 'defiende';
+    } if (defensor.vida <= 0) {
+      console.log(`${defensor.nombre} fue derrotado!`);
+      break;
     } else {
       let [defensor, atacante] = [goku, vegeta].sort(() => Math.random() - 0.5);
       defensor.defensa(atacante);
@@ -75,6 +72,7 @@ function pelea(goku, vegeta) {
     }
   }
 }
+
 
 let goku = new Personaje('Goku', 100, 20);
 let vegeta = new Personaje('Vegeta', 100, 15);
