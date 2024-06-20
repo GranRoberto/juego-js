@@ -40,7 +40,7 @@ class Personaje {
   ataque(oponente) {
     let daño = Math.floor(Math.random() * this.ataque) * (Math.random() < 0.5);
     oponente.recibe_daño(daño);
-    console.log(`${this.nombre} ataca a ${opponent.nombre} por ${daño} de daño!`);
+    console.log(`${this.nombre} ataca a ${oponente.nombre} por ${daño} de daño!`);
   }
 
   defensa() {
@@ -53,6 +53,10 @@ class Personaje {
     console.log(`${this.nombre} recive ${daño} de daño!`);
   }
 }
+let goku = new Personaje('Goku', 100, 20);
+let vegeta = new Personaje('Vegeta', 100, 15);
+goku.ataque();
+vegeta.defensa();
 
 function pelea(goku, vegeta) {
   let turno = Math.random() < 0.5 ? 'ataca' : 'defiende';
@@ -73,11 +77,8 @@ function pelea(goku, vegeta) {
   }
 }
 
-
-let goku = new Personaje('Goku', 100, 20);
-let vegeta = new Personaje('Vegeta', 100, 15);
-
 goku.saludar();
 vegeta.saludar();
 console.log('Que comience la pelea!');
 pelea(goku, vegeta);
+
