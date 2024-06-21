@@ -7,11 +7,11 @@ class Personaje {
   saludar(){
     console.log(`Hola soy ${this.nombre}`);
   }
-  ataque() {
+  atacar() {
     let daño = Math.floor(Math.random() * this.ataque  + 1);
     console.log(`${this.nombre} inflinge ${daño} de daño!`);
   }
-  defensa() {
+  defender() {
     this.vida += 3;
     console.log(`${this.nombre} se defiende!`);
   }
@@ -30,13 +30,14 @@ function pelea(goku, vegeta) {
 
   while(true){
     if (turno >= 0.5) {
-      let [primero, segundo] = [goku, vegeta].sort(() => Math.random());
-      primero.ataque(segundo);
+      let [primero, segundo] = [goku, vegeta].sort(() => Math.random() - 0.5);
+      primero.atacar(segundo);
     } else if (turno <= 0.5) {
-      let [segundo, primero] = [goku, vegeta].sort(() => Math.random());
-      segundo.ataque(primero);
-    } else if (segundo.vida <= 0) {
+      let [segundo, primero] = [goku, vegeta].sort(() => Math.random() - 0.5);
+      segundo.atacar(primero);
+    } else if (this.vida <= 0) {
       console.log(`${segundo.nombre} fue derrotado!`);
+      break;
     }
   }
 }
